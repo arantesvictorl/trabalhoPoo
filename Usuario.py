@@ -4,7 +4,6 @@ class Usuario():
         self.__senha = senha
         self.__cnpj = cnpj
         self.__contatos = contatos
-        self.__tipoUsuario = tipoUsuario
         self.__infoPagamento = infoPagamento
 
     def verificaLogin():
@@ -13,5 +12,3 @@ class Usuario():
         pass
     def contratServ():
         pass
-    
-        

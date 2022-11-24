@@ -1,5 +1,5 @@
 class Usuario():
-    def __init__(self, nome, senha, cnpj, contatos, tipoUsuario, infoPagamento) -> None:
+    def __init__(self, nome, senha, cnpj, contatos, infoPagamento) -> None:
         self.__nome = nome
         self.__senha = senha
         self.__cnpj = cnpj

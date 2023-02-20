@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        /* Estilos para a página de login */
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            width: 400px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 20px;
+            background-color: skyblue;
+            z-index: 2;
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .signup-link {
+            color: #424242;
+        }
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("/static/images/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+        .centered-content {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+        }
+        .botoes {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        padding: 12px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100%;
+        }
+        .botoes:hover {
+            background-color: #9c9c9c;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="POST" action="autentica">
+            <div>
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu Usuário.">
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua Senha.">
+            </div>
+            <div>
+                <input class="botoes" type="submit" name="login" value="Login">
+            </div>
+        </form>
+        <p>Não possui uma conta? <a href="signin" class="signup-link">Cadastre-se aqui</a></p>
+    </div>
+    <div class="centered">
+        <div class="centered-content">
+            <h2>Marketing generativo inteligente.</h2>
+            <p>Somos uma empresa de solução de marketing.</p>
+	        <p>Criamos uma ferramenta inovadora que gera anuncios originais personalizados em massa.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <style>
+      .navbar {
+        background-color: skyblue;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .texto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .navbar h2 {
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .form {
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px lightgray;
+      }
+
+      .form label,
+      .form input,
+      .form button {
+        margin: 10px;
+      }
+      .form button {
+        background-color: skyblue;
+        color: white;
+        border-radius: 5px;
+        padding: 3px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .slideshow {
+        margin: 20px;
+        width: 20em;
+        height: 20em;
+        box-shadow: 2px 2px 10px lightgray;
+        position: relative;
+      }
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+      .slide.active {
+        opacity: 1;
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .buttons button {
+        background-color: skyblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        margin: 0 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>Gerador de Anúncios</h2>
+    </div>
+    <div class="texto">
+      <form class="form">
+        <label for="ramo-atuacao">Ramo de Atuação:</label>
+        <input type="text" id="ramo-atuacao" name="ramo-atuacao" required>
+        <label for="estetica-visual">Estética Visual:</label>
+        <input type="text" id="estetica-visual" name="estetica-visual" required>
+        <label for="publico-alvo">Público Alvo:</label>
+        <input type="text" id="publico-alvo" name="publico-alvo" required>
+        <label for="produto-principal">Produto Principal:</label>
+        <input type="text" id="produto-principal" name="produto-principal" required>
+        <label for="tipo-anuncio">Tipo de Anúncio:</label>
+        <input type="text" id="tipo-anuncio" name="tipo-anuncio" required>
+        <label for="notas-adicionais">Notas Adicionais:</label>
+        <input type="text" id="notas-adicionais" name="notas-adicionais">
+        <label for="modelo">Modelo de IA:</label>
+        <input type="text" id="modelo" name="modelo">
+        <label for="quantidade">Quantidade:</label>
+        <input type="text" id="quantidade" name="quantidade">
+        <button type="submit">Gerar</button>
+      </form>
+      <div class="slideshow-container">
+        <div>
+          <img class="mySlides" style="display:none" src="/static/images/1.jpg">
+          <img class="mySlides" style="display:none" src="/static/images/2.jpg" alt="Imagem 2">
+          <img class="mySlides" style="display:none" src="/static/images/3.jpg" alt="Imagem 3">
+        </div>
+        <div style="text-align:center">
+          <button onclick="plusSlides(-1)">Anterior</button>
+          <button onclick="plusSlides(1)">Próximo</button>
+          <button onclick="downloadImage()">Baixar</button>
+          <button onclick="downloadAll()">Baixar todas</button>
+        </div>               
+      </div>
+    </div>
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+      function downloadImage() {
+        let image = document.getElementsByClassName("mySlides")[slideIndex-1];
+        let link = document.createElement("a");
+        link.download = "imagem" + slideIndex + ".jpg";
+        link.href = image.src;
+        link.click();
+      }
+      function downloadAll() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+          let link = document.createElement('a');
+          link.href = slides[i].src;
+          link.download = 'slide-' + (i+1) + '.jpg';
+          link.style.display = 'none';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      }
+    </script>
+  </body>
+</html>  

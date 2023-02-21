@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Cadastro de Cliente</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .cadastro-container {
+            width: 400px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 20px;
+            background-color: skyblue;
+            z-index: 2;
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .botoes {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        padding: 12px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100%;
+        }
+        .botoes:hover {
+            background-color: #9c9c9c;
+        }
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("/static/images/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered">
+        <div class="centered-content">
+            <div class="cadastro-container">
+                <form method="POST" action="">
+                    <h1>Cadastro</h1>
+                    <div>
+                        {{ form.categoria }}
+                    </div>
+                    <div>
+                        {{ form.csrf_token }}
+                        <label>Nome:</label>
+                        {{ form.nome(placeholder="Digite o seu Nome aqui.") }}
+                    </div>
+                    <div>
+                        <label>CNPJ:</label>
+                        {{ form.cnpj(placeholder="Digite o seu CNPJ aqui.") }}
+                    </div>
+                    <div>
+                        <label>E-mail:</label>
+                        {{ form.email(placeholder="Digite o seu E-mail aqui.") }}
+                    </div>
+                    <div>
+                        <label>Usuário:</label>
+                        {{ form.usuario(placeholder="Digite o seu Usuário aqui.") }}
+                    </div>
+                    <div>
+                        <label>Senha:</label>
+                        {{ form.senha(placeholder="Digite a sua Senha aqui.") }}
+                    </div>
+                    <div>
+                        <label>Confirmar Senha:</label>
+                        {{ form.confirmar_senha(placeholder="Confirme sua senha.") }}
+                    </div>
+                    <input class="botoes" type="submit" name="enviar" value="Cadastrar">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
